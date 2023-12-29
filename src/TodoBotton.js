@@ -1,6 +1,6 @@
 function TodoBotton(){
 return(
-    <input button="TodoButton"/>
+    <button>TodoButton</button>
 )
 
 }
