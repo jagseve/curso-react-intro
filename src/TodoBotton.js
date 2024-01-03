@@ -1,6 +1,12 @@
+import './TodoButton.css'
 function TodoBotton(){
 return(
-    <button>TodoButton</button>
+    <button className="TodoButton">Agregar un nuevo Todo
+    <div class="hoverEffect">
+    <div>
+    </div>
+    </div>
+    </button>
 )
 
 }
