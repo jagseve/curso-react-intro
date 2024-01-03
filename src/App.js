@@ -1,5 +1,4 @@
 import logo from './platzi.webp';
-import './App.css';
 import React from 'react';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
@@ -14,11 +13,9 @@ const defaultTodo =[{text: 'Cortar cebolla', completed: true},
 
 function App() {
   return (
-    <React.Fragment>
+    <>
       <TodoCounter completed={16} total={35}/>
-      <TodoCounter completed={12} total={35}/>
-      <TodoCounter completed={10} total={35}/>
-      <TodoCounter completed={89} total={35}/>
+
       <TodoSearch/>
       <TodoList>
        {defaultTodo.map(todo => (
@@ -31,7 +28,7 @@ function App() {
       </TodoList>
       <TodoBotton/>
       
-    </React.Fragment>
+    </>
     )
 }
 
