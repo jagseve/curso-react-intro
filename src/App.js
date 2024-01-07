@@ -1,4 +1,4 @@
-import logo from './platzi.webp';
+
 import React from 'react';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
@@ -30,7 +30,7 @@ function App() {
     const completeTodo =(text)=>{
       const newTodo=[...todos];
       const todoIndex= newTodo.findIndex(
-        (todo)=>todo.text==text
+        (todo)=>todo.text===text
         );
       newTodo[todoIndex].completed=true;
       setTodos(newTodo)
@@ -38,7 +38,7 @@ function App() {
     const deleteTodo =(text)=>{
       const newTodo=[...todos];
       const todoIndex= newTodo.findIndex(
-        (todo)=>todo.text==text
+        (todo)=>todo.text===text
         );
       newTodo.splice(todoIndex,1)
       setTodos(newTodo)
