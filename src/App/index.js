@@ -17,19 +17,40 @@ localStorage.removeItem('TODOS_V1');*/
 
 function App() {
   
-  const [todos,saveTodos]=useLocalStorage('TODOS_V1', []);
+  const {
+    item:todos,
+    saveItem:saveTodos,
+    loading,
+    error,
+    }=useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue]=React.useState('');
-  console.log('se renderizó un nuevo valor  '+ searchValue);
-
+  
   const completedTodos= todos.filter(todo =>!!todo.completed).length;
   const totalTodos =todos.length;
+  
+  console.log('log 1');
+
+  /*React.useEffect(()=>{
+    console.log('loooooooooog 2');
+  });*/
+
+  /*React.useEffect(()=>{
+    console.log('loooooooooog 2');
+  }, []);*/
+
+  React.useEffect(()=>{
+    console.log('loooooooooog 2');
+  }, [totalTodos]);
+
+  console.log('log 3');
+  
   const searchedTodos=todos.filter((todo) =>{
     const todoText=todo.text.toLowerCase();
     const searchText=searchValue.toLowerCase();
     return(
      todoText.includes(searchText))
     }
-    );
+  );
 
     const completeTodo =(text)=>{
       const newTodo=[...todos];
@@ -38,8 +59,8 @@ function App() {
         );
       newTodo[todoIndex].completed=true;
       saveTodos(newTodo)
-
     }
+
     const deleteTodo =(text)=>{
       const newTodo=[...todos];
       const todoIndex= newTodo.findIndex(
@@ -51,6 +72,8 @@ function App() {
 
     return(
       <AppUi
+      loading={loading}
+      error={error}
       completedTodos={completedTodos}
       totalTodos={ totalTodos}
       searchValue={ searchValue}

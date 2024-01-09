@@ -4,8 +4,13 @@ import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
 import { TodoBotton } from '../TodoButton';
+import {TodosLoading} from '../TodosLoading';
+import {TodosError} from '../TodosError';
+import {EmptyTodos} from '../EmptyTodos';
 
 function AppUi ({
+    loading,
+    error,
     completedTodos,
     totalTodos,
     searchValue,
@@ -26,19 +31,28 @@ function AppUi ({
           setSearchValue={setSearchValue}
           />
           <TodoList>
-           {searchedTodos.map(todo => (
-            <TodoItem 
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={()=>completeTodo(todo.text)}
-            onDelete={()=>deleteTodo(todo.text)}
-            />
+            {loading && (<>
+              <TodosLoading/>
+              <TodosLoading/>
+              <TodosLoading/>
+              </>)
+            }
+            {error && <TodosError/>}
+            {(!loading && searchedTodos.length ===0) && <EmptyTodos/>}
+
+            {searchedTodos.map(todo => (
+              <TodoItem 
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              onComplete={()=>completeTodo(todo.text)}
+              onDelete={()=>deleteTodo(todo.text)}
+              />
            ))}
           </TodoList>
           <TodoBotton/>
           
         </>
-        )
-}
+      )
+    }
 export {AppUi}
