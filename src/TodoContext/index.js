@@ -55,6 +55,10 @@ function TodoProvider({Children}) {
     <TodoContext.Provider value={{
         loading,
         error,
+        completedTodos,
+        totalTodos,
+        searchValue,
+        setSearchValue,
         searchedTodos,
         completeTodo,
         deleteTodo,

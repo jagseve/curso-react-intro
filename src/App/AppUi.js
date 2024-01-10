@@ -16,9 +16,9 @@ function AppUi (){
     searchedTodos,
     completeTodo,
     deleteTodo,
-   }=React.useContext(TodoContext) 
+   }=React.useContext(TodoContext); 
     return (
-        <>
+          <>
           <TodoCounter/>
           <TodoSearch/>
           <TodoList>
@@ -44,6 +44,6 @@ function AppUi (){
           <TodoBotton/>
           
         </>
-      );
+    )
     }
-export {AppUi};
+export {AppUi}

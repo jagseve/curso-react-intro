@@ -6,9 +6,7 @@ import { TodoProvider } from '../TodoContext';
 
 function App() {
   return (
-    <TodoProvider>
-      <AppUi/>
-    </TodoProvider>
+    <TodoProvider><AppUi/></TodoProvider>
   )}
 
 export {App};
