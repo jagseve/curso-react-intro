@@ -18,7 +18,7 @@ function AppUi (){
     deleteTodo,
    }=React.useContext(TodoContext); 
     return (
-          <>
+        <>
           <TodoCounter/>
           <TodoSearch/>
           <TodoList>
@@ -30,7 +30,7 @@ function AppUi (){
             </>
           )}
           {error && <TodosError/>}
-          {(!loading && searchedTodos.length ===0) && <EmptyTodos/>}
+          {!loading && searchedTodos.length ===0 && <EmptyTodos/>}
           {searchedTodos.map(todo => (
             <TodoItem 
             key={todo.text}

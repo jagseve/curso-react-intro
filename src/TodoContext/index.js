@@ -62,7 +62,8 @@ function TodoProvider({Children}) {
         searchedTodos,
         completeTodo,
         deleteTodo,
-    }}>
+        saveTodos,
+        }}>
         {Children}
 
     </TodoContext.Provider>
