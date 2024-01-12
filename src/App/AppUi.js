@@ -7,30 +7,21 @@ import { TodoBotton } from '../TodoButton';
 import {TodosLoading} from '../TodosLoading';
 import {TodosError} from '../TodosError';
 import {EmptyTodos} from '../EmptyTodos';
+import { TodoContext } from '../TodoContext';
 
-function AppUi ({
+function AppUi (){
+  const {
     loading,
     error,
-    completedTodos,
-    totalTodos,
-    searchValue,
-    setSearchValue,
     searchedTodos,
     completeTodo,
     deleteTodo,
-}){
+  } = React.useContext(TodoContext)
     return (
         <>
-          <TodoCounter
-          completed={completedTodos}
-          total={totalTodos}
-          />
-    
-          <TodoSearch
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-          />
-          <TodoList>
+          <TodoCounter/>
+          <TodoSearch/>
+            <TodoList>
             {loading && (<>
               <TodosLoading/>
               <TodosLoading/>
@@ -48,8 +39,8 @@ function AppUi ({
               onComplete={()=>completeTodo(todo.text)}
               onDelete={()=>deleteTodo(todo.text)}
               />
-           ))}
-          </TodoList>
+            ))}
+            </TodoList>
           <TodoBotton/>
           
         </>
